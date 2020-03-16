@@ -163,4 +163,26 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(5.0, cm, 0.0);
     }
 
+    @Test
+    public void givenTwoParametrsInInches_WhenProper_ShouldReturn_AdditionInInches() {
+        double inch = quantityMeasurement.addLengths(2,unitType.INCH,2,unitType.INCH);
+        Assert.assertEquals(4.0,inch, 0.0);
+    }
+    @Test
+    public void givenFeetAnd_Inches_WhenProper_ShouldReturn_AdditionInInches() {
+        double inch = quantityMeasurement.addLengths(1,unitType.FEET,2,unitType.INCH);
+        Assert.assertEquals(14.0,inch, 0.0);
+    }
+
+    @Test
+    public void given_BothParametresInFeet_WhenProper_ShouldReturn_AdditionInInches() {
+        double inch = quantityMeasurement.addLengths(1,unitType.FEET,1,unitType.FEET);
+        Assert.assertEquals(24.0,inch, 0.0);
+    }
+
+    @Test
+    public void given_WhenProper_ShouldReturn_AdditionInInches() {
+        double inch = quantityMeasurement.addLengths(2,unitType.INCH,2.5,unitType.CENTIMETER_TO_INCH);
+        Assert.assertEquals(3.0,inch, 0.0);
+    }
 }

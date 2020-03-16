@@ -16,7 +16,9 @@ public class QuantityMeasurement {
         return (unit1 == unit2);
     }
 
-
+    public double addLengths(int length1, unitType type, double length2, unitType type1) {
+        return (length1 *type.unitType +length2 *type1.unitType );
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -25,8 +27,6 @@ public class QuantityMeasurement {
         QuantityMeasurement that = (QuantityMeasurement) o;
         return Objects.equals(quantityMeasurement, that.quantityMeasurement);
     }
-
-
 
 }
 
