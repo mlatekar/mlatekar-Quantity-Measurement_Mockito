@@ -157,4 +157,10 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(3.0, feet, 0.0);
     }
 
+    @Test
+    public void given_2Inch_WhenProper_ShouldReturn_5Centimeter() {
+        double cm = quantityMeasurement.returnUnit(unitType.Inch_To_CENTIMETER, 2.0);
+        Assert.assertEquals(5.0, cm, 0.0);
+    }
+
 }
