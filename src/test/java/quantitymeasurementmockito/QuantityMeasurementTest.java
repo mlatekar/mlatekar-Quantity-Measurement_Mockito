@@ -210,4 +210,22 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(2,inch, 0.0);
     }
 
+    @Test
+    public void givenWeightIn_Kg_WhenProper_ShouldReturnIn_Grams() {
+        double gram = quantityMeasurement.returnUnit(unitType.KG_TO_GRAM, 1.0);
+        Assert.assertEquals(1000,gram, 0.0);
+    }
+
+    @Test
+    public void givenWeightIn_Tons_WhenProper_ShouldReturnIn_Kg() {
+        double kg = quantityMeasurement.returnUnit(unitType.TONS_TO_KG, 1.0);
+        Assert.assertEquals(1000,kg, 0.0);
+    }
+
+    @Test
+    public void given_tonsAndGrams_WhenProper_ShouldReturn_AdditionInKg() {
+        double kg = quantityMeasurement.addition(1,unitType.TONS_TO_KG,1000,unitType.GRAMS_TO_KG);
+        Assert.assertEquals(1001,kg, 0.0);
+    }
+
 }
