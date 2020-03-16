@@ -1,25 +1,30 @@
 package quantitymeasurementmockito;
 
-import com.sun.org.apache.xpath.internal.operations.Equals;
 
-import java.text.DecimalFormat;
+import java.util.Objects;
 
 public class QuantityMeasurement {
-    public static void main(String[] args) {
-        System.out.println("Welcome to Quantity Measurement");
 
-    }
-    private static DecimalFormat decimalFormat=new DecimalFormat("#.##");
 
-    public double feetTOInchConversion(double feet) {
-        double inch=feet*12.0;
-        return Double.parseDouble(decimalFormat.format(inch));
+    QuantityMeasurement quantityMeasurement = null;
+
+    public double returnUnit(unitType type, double unit){
+        return unit * type.unitType;
     }
 
-    public boolean feetCheck(int first, int second) {
-    return (first == second);
-
+    public boolean check (int unit1, int unit2) {
+        return (unit1 == unit2);
     }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        QuantityMeasurement that = (QuantityMeasurement) o;
+        return Objects.equals(quantityMeasurement, that.quantityMeasurement);
+    }
+
 
 
 }
