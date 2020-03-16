@@ -175,14 +175,26 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given_BothParametresInFeet_WhenProper_ShouldReturn_AdditionInInches() {
+    public void given_BothParametersInFeet_WhenProper_ShouldReturn_AdditionInInches() {
         double inch = quantityMeasurement.addLengths(1,unitType.FEET,1,unitType.FEET);
         Assert.assertEquals(24.0,inch, 0.0);
     }
 
     @Test
-    public void given_WhenProper_ShouldReturn_AdditionInInches() {
+    public void given_InchAndCentimeterWhenProper_ShouldReturn_AdditionInInches() {
         double inch = quantityMeasurement.addLengths(2,unitType.INCH,2.5,unitType.CENTIMETER_TO_INCH);
         Assert.assertEquals(3.0,inch, 0.0);
+    }
+
+    @Test
+    public void givenVolumeIn_Gallon_WhenProper_ShouldReturnIn_Liter() {
+        double liter = quantityMeasurement.returnUnit(unitType.GALLON_TO_LITERS, 1.0);
+        Assert.assertEquals(3.78,liter, 0.0);
+    }
+
+    @Test
+    public void givenVolumeIn_Liters_WhenProper_ShouldReturnIn_Milliliter() {
+        double milliliter = quantityMeasurement.returnUnit(unitType.LITER_TO_MILILITER, 1.0);
+        Assert.assertEquals(1000,milliliter, 0.0);
     }
 }
