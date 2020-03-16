@@ -1,17 +1,22 @@
 package quantitymeasurementmockito;
 
-import java.text.DecimalFormat;
+
 import java.util.Objects;
 
 public class QuantityMeasurement {
 
-    private int second;
-    private int first;
+
     QuantityMeasurement quantityMeasurement = null;
 
-    public boolean feetCheck(int first, int second) {
-        return (first == second);
+    public double returnUnit(unitType type, double unit){
+        return unit * type.unitType;
     }
+
+    public boolean check (int unit1, int unit2) {
+        return (unit1 == unit2);
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -20,9 +25,7 @@ public class QuantityMeasurement {
         return Objects.equals(quantityMeasurement, that.quantityMeasurement);
     }
 
-    public boolean inchcheck(int first, int second) {
-        return (first == second);
-    }
+
 
 }
 
