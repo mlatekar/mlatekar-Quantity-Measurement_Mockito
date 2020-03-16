@@ -120,7 +120,7 @@ public class QuantityMeasurementTest {
         double feet = quantityMeasurement.returnUnit(unitType.INCHES, 12.0);
         Assert.assertEquals(1.0, feet, 0.0);
     }
-
+//UC2
     @Test
     public void given_3Yard_ShouldReturn_1Feet() {
         double feet = quantityMeasurement.returnUnit(unitType.FEET_TO_YARD, 3.0);
@@ -156,13 +156,13 @@ public class QuantityMeasurementTest {
         double feet = quantityMeasurement.returnUnit(unitType.YARD_TO_FEET, 1.0);
         Assert.assertEquals(3.0, feet, 0.0);
     }
-
+//UC3
     @Test
     public void given_2Inch_WhenProper_ShouldReturn_5Centimeter() {
         double cm = quantityMeasurement.returnUnit(unitType.Inch_To_CENTIMETER, 2.0);
         Assert.assertEquals(5.0, cm, 0.0);
     }
-
+//UC4
     @Test
     public void givenTwoParametrsInInches_WhenProper_ShouldReturn_AdditionInInches() {
         double inch = quantityMeasurement.addition(2,unitType.INCH,2,unitType.INCH);
@@ -185,7 +185,7 @@ public class QuantityMeasurementTest {
         double inch = quantityMeasurement.addition(2,unitType.INCH,2.5,unitType.CENTIMETER_TO_INCH);
         Assert.assertEquals(3.0,inch, 0.0);
     }
-
+//UC5
     @Test
     public void givenVolumeIn_Gallon_WhenProper_ShouldReturnIn_Liter() {
         double liter = quantityMeasurement.returnUnit(unitType.GALLON_TO_LITERS, 1.0);
@@ -197,7 +197,7 @@ public class QuantityMeasurementTest {
         double milliliter = quantityMeasurement.returnUnit(unitType.LITER_TO_MILLILITER, 1.0);
         Assert.assertEquals(1000,milliliter, 0.0);
     }
-
+//UC6
     @Test
     public void given_GallonAndLiters_WhenProper_ShouldReturn_AdditionInLiters() {
         double inch = quantityMeasurement.addition(1,unitType.GALLON_TO_LITERS,3.78,unitType.LITER);
@@ -209,7 +209,7 @@ public class QuantityMeasurementTest {
         double inch = quantityMeasurement.addition(1,unitType.LITER,1000,unitType.MILLILITER_TO_LITER);
         Assert.assertEquals(2,inch, 0.0);
     }
-
+//UC7
     @Test
     public void givenWeightIn_Kg_WhenProper_ShouldReturnIn_Grams() {
         double gram = quantityMeasurement.returnUnit(unitType.KG_TO_GRAM, 1.0);
@@ -227,5 +227,24 @@ public class QuantityMeasurementTest {
         double kg = quantityMeasurement.addition(1,unitType.TONS_TO_KG,1000,unitType.GRAMS_TO_KG);
         Assert.assertEquals(1001,kg, 0.0);
     }
+//UC8
+    @Test
+    public void givenTemperatureIn_Fahrenheit_WhenProper_ShouldReturnIn_Celsius() {
+        double celsius = quantityMeasurement.returnUnit(unitType.FARENHEIT_TO_CELSIUS, 212.0);
+        Assert.assertEquals(100,celsius, 0.0);
+    }
+
+    @Test
+    public void givenTemperatureIn_0Fahrenheit_WhenProper_ShouldReturnIn_0Celsius() {
+        double celsius = quantityMeasurement.returnUnit(unitType.FARENHEIT_TO_CELSIUS, 0.0);
+        Assert.assertEquals(0,celsius, 0.0);
+    }
+
+    @Test
+    public void givenTemperatureIn_1Fahrenheit_WhenProper_ShouldNotReturnIn_1Celsius() {
+        double celsius = quantityMeasurement.returnUnit(unitType.FARENHEIT_TO_CELSIUS, 1.0);
+        Assert.assertNotEquals(1,celsius, 0.0);
+    }
+
 
 }
