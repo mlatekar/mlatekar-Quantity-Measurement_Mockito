@@ -165,24 +165,24 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenTwoParametrsInInches_WhenProper_ShouldReturn_AdditionInInches() {
-        double inch = quantityMeasurement.addLengths(2,unitType.INCH,2,unitType.INCH);
+        double inch = quantityMeasurement.addition(2,unitType.INCH,2,unitType.INCH);
         Assert.assertEquals(4.0,inch, 0.0);
     }
     @Test
     public void givenFeetAnd_Inches_WhenProper_ShouldReturn_AdditionInInches() {
-        double inch = quantityMeasurement.addLengths(1,unitType.FEET,2,unitType.INCH);
+        double inch = quantityMeasurement.addition(1,unitType.FEET,2,unitType.INCH);
         Assert.assertEquals(14.0,inch, 0.0);
     }
 
     @Test
     public void given_BothParametersInFeet_WhenProper_ShouldReturn_AdditionInInches() {
-        double inch = quantityMeasurement.addLengths(1,unitType.FEET,1,unitType.FEET);
+        double inch = quantityMeasurement.addition(1,unitType.FEET,1,unitType.FEET);
         Assert.assertEquals(24.0,inch, 0.0);
     }
 
     @Test
     public void given_InchAndCentimeterWhenProper_ShouldReturn_AdditionInInches() {
-        double inch = quantityMeasurement.addLengths(2,unitType.INCH,2.5,unitType.CENTIMETER_TO_INCH);
+        double inch = quantityMeasurement.addition(2,unitType.INCH,2.5,unitType.CENTIMETER_TO_INCH);
         Assert.assertEquals(3.0,inch, 0.0);
     }
 
@@ -194,7 +194,20 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenVolumeIn_Liters_WhenProper_ShouldReturnIn_Milliliter() {
-        double milliliter = quantityMeasurement.returnUnit(unitType.LITER_TO_MILILITER, 1.0);
+        double milliliter = quantityMeasurement.returnUnit(unitType.LITER_TO_MILLILITER, 1.0);
         Assert.assertEquals(1000,milliliter, 0.0);
     }
+
+    @Test
+    public void given_GallonAndLiters_WhenProper_ShouldReturn_AdditionInLiters() {
+        double inch = quantityMeasurement.addition(1,unitType.GALLON_TO_LITERS,3.78,unitType.LITER);
+        Assert.assertEquals(7.56,inch, 0.0);
+    }
+
+    @Test
+    public void given_LiterAndMilliLiters_WhenProper_ShouldReturn_AdditionInLiters() {
+        double inch = quantityMeasurement.addition(1,unitType.LITER,1000,unitType.MILLILITER_TO_LITER);
+        Assert.assertEquals(2,inch, 0.0);
+    }
+
 }
